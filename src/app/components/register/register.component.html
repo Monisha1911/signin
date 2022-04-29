@@ -1,0 +1,47 @@
+<!-- <form #registerForm="ngForm" (ngSubmit)="getRegisterFromData(registerForm.value)"> -->
+    <form [formGroup]="registerForm" (ngSubmit)="getRegisterFromData(registerForm.value)">
+
+        <div class="form-group">
+            <h2>Register</h2>
+            <label for="admin_fname">FirstName</label>
+            <input type="text" ngModel formControlName="admin_fname" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.admin_fname.errors }" />
+            <div *ngIf="submitted && f.admin_fname.errors" class="invalid-feedback">
+                <div *ngIf="f.admin_fname.errors.required">FirstName is required</div>
+            </div>
+
+            <label for="admin_lname">LastName</label>
+            <input type="text" ngModel formControlName="admin_lname" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.admin_lname.errors }" />
+            <div *ngIf="submitted && f.admin_lname.errors" class="invalid-feedback">
+                <div *ngIf="f.admin_lname.errors.required">LastName is required</div>
+            </div>
+
+           
+            <label for="admin_email">Email</label>
+            <input type="email" ngModel formControlName="admin_email" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.admin_email.errors }" />
+            <div *ngIf="submitted && f.admin_email.errors" class="invalid-feedback">
+                <div *ngIf="f.admin_email.errors.required">Email is required</div>
+            </div>
+       
+            
+        
+            <label for="admin_password">Password</label>
+            <input type="password" ngModel formControlName="admin_password" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.admin_password.errors }" />
+            <div *ngIf="submitted && f.admin_password.errors" class="invalid-feedback">
+                <div *ngIf="f.admin_password.errors.required">Password is required</div>
+                <div *ngIf="f.admin_password.errors.minlength">Password must be at least 6 characters</div>
+            </div>
+
+       
+            <button [disabled]="loading" class="btn btn-primary">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Register
+            </button>
+            <a routerLink="../login" class="btn btn-link">Cancel</a>
+        </div>
+    
+    </form>
+    
