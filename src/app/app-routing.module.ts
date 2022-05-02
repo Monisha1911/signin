@@ -10,7 +10,6 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent },
-  {path:'login',redirectTo:'home'}
 
   // otherwise redirect to home
   // { path: '**', redirectTo: '' }    

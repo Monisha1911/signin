@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { RegisterService } from 'src/app/Services/register.service';
 
 @Component({
@@ -18,7 +19,7 @@ export class RegisterComponent implements OnInit {
   // msg: string;
 
 
-  constructor(private formBuilder: FormBuilder, private registerservice : RegisterService
+  constructor(private formBuilder: FormBuilder, private registerservice : RegisterService, private router:Router
   ) {}
   
 
@@ -49,9 +50,13 @@ export class RegisterComponent implements OnInit {
     //   "admin_image": "string.jpg",
     //   "role_id": 1
     // }
-    this.registerservice.postData(data).subscribe((result)=>{
-      console.warn(result)
-
+    this.registerservice.postData(data)
+    .subscribe(res=>{
+      alert("Signup Succesfull");
+      this.registerForm.reset();
+      this.router.navigate(['login']);
+    },err=>{
+      alert("Something went wrong")
     })
 
   }

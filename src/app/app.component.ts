@@ -16,15 +16,15 @@ export class AppComponent {
     }) 
   }
 
-  post_api(data:any)
-  {
-    console.warn(data)
-    this.register.postData(data).subscribe((result)=>{
-      console.warn(result)
+  // post_api(data:any)
+  // {
+  //   console.warn(data)
+  //   this.register.postData(data).subscribe((result)=>{
+  //     console.warn(result)
 
-    })
+  //   })
 
-  }
+  // }
 
 
 }
